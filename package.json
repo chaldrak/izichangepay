@@ -1,48 +1,48 @@
 {
-  "name": "izichangepay",
-  "version": "1.0.1",
-  "description": "Une brève description de ton package",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js",
-      "types": "./dist/index.d.ts"
-    }
-  },
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "build": "tsdown --config-loader unrun",
-    "dev": "tsdown --watch",
-    "lint": "biome check .",
-    "lint:fix": "biome check --write .",
-    "typecheck": "tsc --noEmit",
-    "test": "vitest",
-    "prepublishOnly": "npm run lint && npm run typecheck && npm run build",
-    "version": "changeset version",
-    "publish": "npm run build && changeset publish"
-  },
-  "keywords": [
-    "utils",
-    "typescript"
-  ],
-  "author": "LeDevMatheux <chaldrakus@gmail.com>",
-  "license": "MIT",
-  "type": "commonjs",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/chaldrak/izichangepay.git"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "^2.4.10",
-    "@changesets/cli": "^2.30.0",
-    "@types/node": "^25.5.2",
-    "tsdown": "^0.21.7",
-    "typescript": "^6.0.2",
-    "vitest": "^4.1.3"
-  }
+	"name": "izichangepay",
+	"version": "1.0.1",
+	"description": "Une brève description de ton package",
+	"main": "dist/index.js",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.js",
+			"types": "./dist/index.d.ts"
+		}
+	},
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"build": "tsdown --config-loader unrun",
+		"dev": "tsdown --watch",
+		"lint": "biome check .",
+		"lint:fix": "biome check --write .",
+		"typecheck": "tsc --noEmit",
+		"test": "vitest",
+		"prepublishOnly": "npm run lint && npm run typecheck && npm run build",
+		"version": "changeset version",
+		"publish": "npm run build && changeset publish"
+	},
+	"keywords": [
+		"utils",
+		"typescript"
+	],
+	"author": "LeDevMatheux <chaldrakus@gmail.com>",
+	"license": "MIT",
+	"type": "commonjs",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/chaldrak/izichangepay.git"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.4.10",
+		"@changesets/cli": "^2.30.0",
+		"@types/node": "^25.5.2",
+		"tsdown": "^0.21.7",
+		"typescript": "^6.0.2",
+		"vitest": "^4.1.3"
+	}
 }
