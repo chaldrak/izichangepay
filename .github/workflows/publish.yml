@@ -1,0 +1,86 @@
+name: CI & Release
+
+on:
+    # CI : s'exécute sur chaque push et pull request
+    push:
+        branches: [main, master]
+    pull_request:
+        branches: [main, master]
+
+    # Release : s'exécute uniquement sur push vers main/master
+    # (le job release est conditionné pour ne pas tourner sur PR)
+    workflow_dispatch: # Permet de déclencher manuellement si besoin
+
+# Permissions nécessaires
+permissions:
+    contents: read # Par défaut pour CI
+    # Le job release aura ses propres permissions plus élevées
+
+jobs:
+    # ==================== JOB CI (Lint, Typecheck, Build, Tests) ====================
+    ci:
+        name: Lint, Build & Test
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+                  cache: "npm"
+
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Lint with Biome
+              run: npm run lint
+
+            - name: Type check
+              run: npm run typecheck
+
+            - name: Build
+              run: npm run build
+
+            - name: Run tests
+              run: npm test
+
+    # ==================== JOB RELEASE (Changesets) ====================
+    release:
+        name: Release to npm
+        runs-on: ubuntu-latest
+        # Le job release ne s'exécute QUE sur push vers main/master (pas sur PR)
+        if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+
+        # Permissions élevées nécessaires pour changesets
+        permissions:
+            contents: write # Pour pousser les commits/tags
+            pull-requests: write # Pour créer la PR de versioning
+            id-token: write # Optionnel (pour Trusted Publishing plus tard)
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0 # Important pour changesets (historique complet)
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+                  cache: "npm"
+                  registry-url: "https://registry.npmjs.org"
+
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Create Release Pull Request or Publish
+              uses: changesets/action@v1
+              with:
+                  version: npm run version # → changeset version
+                  publish: npm run publish # → npm run build + changeset publish
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
