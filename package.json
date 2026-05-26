@@ -1,6 +1,6 @@
 {
   "name": "izichangepay",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Zero-dependency TypeScript wrapper for the IziChange payment API",
   "keywords": [
     "izichange",
