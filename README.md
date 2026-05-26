@@ -72,19 +72,34 @@ const client = new IziChangePayClient({
 
 ## Cryptomonnaies supportées
 
-| Code           | Actif                        |
-| -------------- | ---------------------------- |
-| `trx`          | Tron (TRX)                   |
-| `btc`          | Bitcoin (BTC)                |
-| `btc.bep20`    | Bitcoin Binance (BEP20)      |
-| `eth`          | Ethereum (ETH)               |
-| `bnb`          | BNB Binance                  |
-| `ton`          | Ton (TON)                    |
-| `usdt.trc20`   | Tether USDT (TRC20)          |
-| `usdt.bep20`   | USDT Binance (BEP20)         |
-| `usdt.ton`     | USDT Ton (TON)               |
-| `usdc.trc20`   | USD Coin Tron (TRC20)        |
-| `usdc.bep20`   | USD Coin Binance (BEP20)     |
+| Code            | Actif                          |
+| --------------- | ------------------------------ |
+| `bnb`           | BNB Binance                    |
+| `btc`           | Bitcoin (BTC)                  |
+| `btc.bep20`     | Bitcoin Binance (BEP20)        |
+| `eth`           | Ethereum (ETH)                 |
+| `eth.bep20`     | Ethereum Binance (BEP20)       |
+| `trx`           | Tron (TRX)                     |
+| `ton`           | Toncoin (TON)                  |
+| `ton.bep20`     | Toncoin Binance (BEP20)        |
+| `opbnb`         | opBNB                          |
+| `sol.bep20`     | Solana Binance (BEP20)         |
+| `ada.bep20`     | Cardano Binance (BEP20)        |
+| `dot.bep20`     | Polkadot Binance (BEP20)       |
+| `doge.bep20`    | Dogecoin Binance (BEP20)       |
+| `dogs.ton`      | DOGS Toncoin (TON)             |
+| `shib.bep20`    | Shiba Inu Binance (BEP20)      |
+| `twt.bep20`     | Trust Wallet Token (BEP20)     |
+| `xrp.bep20`     | XRP Binance (BEP20)            |
+| `busd.bep20`    | BUSD Binance (BEP20)           |
+| `usdt.trc20`    | Tether USDT (TRC20)            |
+| `usdt.bep20`    | Tether USDT Binance (BEP20)    |
+| `usdt.erc20`    | Tether USDT Ethereum (ERC20)   |
+| `usdt.opbnb`    | Tether USDT opBNB              |
+| `usdt.ton`      | Tether USDT Toncoin (TON)      |
+| `usdc.trc20`    | USD Coin Tron (TRC20)          |
+| `usdc.bep20`    | USD Coin Binance (BEP20)       |
+| `usdc.erc20`    | USD Coin Ethereum (ERC20)      |
 
 ## API
 
